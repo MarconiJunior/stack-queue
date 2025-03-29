@@ -26,12 +26,23 @@ public class QueueApp {
         frame.setVisible(true);
     }
 
+    /**
+     * Creates the top panel which displays the last called patient.
+     *
+     * @return The top panel.
+     */
     private JPanel createTopPanel() {
         JPanel topPanel = new JPanel();
         topPanel.add(lastCalledLabel);
         return topPanel;
     }
 
+    /**
+     * Creates the center panel with buttons for registering a new patient,
+     * calling the next patient, and displaying called patients.
+     *
+     * @return The center panel.
+     */
     private JPanel createCenterPanel() {
         JPanel centerPanel = new JPanel(new GridLayout(3, 1));
 
@@ -50,6 +61,10 @@ public class QueueApp {
         return centerPanel;
     }
 
+    /**
+     * Registers a new patient by prompting the user to input their name.
+     * If the name is empty, an error message is displayed.
+     */
     private void registerPatient() {
         String name;
         do {
@@ -67,6 +82,10 @@ public class QueueApp {
         callNextButton.setEnabled(true);
     }
 
+    /**
+     * Calls the next patient in the queue and updates the display.
+     * If there are no patients left in the queue, the button is disabled.
+     */
     private void callNextPatient() {
         if (!queueController.getPatientInQueue().isEmpty()) {
             queueController.callNextPatient();
@@ -76,6 +95,9 @@ public class QueueApp {
         callNextButton.setEnabled(!queueController.getPatientInQueue().isEmpty());
     }
 
+    /**
+     * Displays a list of all patients who have been called.
+     */
     private void showCalledPatients() {
         StringBuilder sb = new StringBuilder("Pacientes chamados:\n");
         Node<Patient> current = queueController.getCalledPatients().peek();
