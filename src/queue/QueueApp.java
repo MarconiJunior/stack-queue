@@ -55,7 +55,11 @@ public class QueueApp {
         do {
             name = JOptionPane.showInputDialog("Digite o nome do paciente:");
             if (name == null || name.trim().isEmpty()) {
-                JOptionPane.showMessageDialog(null, "O nome não pode estar vazio!", "Erro", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(
+                        null,
+                        "O nome não pode estar vazio!",
+                        "Erro", JOptionPane.ERROR_MESSAGE
+                );
             }
         } while (name == null || name.trim().isEmpty());
 
@@ -66,7 +70,8 @@ public class QueueApp {
     private void callNextPatient() {
         if (!queueController.getPatientInQueue().isEmpty()) {
             queueController.callNextPatient();
-            lastCalledLabel.setText("Último paciente chamado: " + queueController.getLastCalledPatient().getName());
+            String name = queueController.getLastCalledPatient().getName();
+            lastCalledLabel.setText("Último paciente chamado: " + name);
         }
         callNextButton.setEnabled(!queueController.getPatientInQueue().isEmpty());
     }
@@ -75,7 +80,8 @@ public class QueueApp {
         StringBuilder sb = new StringBuilder("Pacientes chamados:\n");
         Node<Patient> current = queueController.getCalledPatients().peek();
         while (current != null) {
-            sb.append("- ").append(current.getValue().getName()).append("\n");
+            String name = current.getValue().getName();
+            sb.append("- ").append(name).append("\n");
             current = current.getNext();
         }
         JOptionPane.showMessageDialog(null, sb.toString());
