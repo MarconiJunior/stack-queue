@@ -1,5 +1,7 @@
 package queue;
 
+import common.Node;
+
 public class Queue<T> {
     protected Node<T> first;
     protected Node<T> last;

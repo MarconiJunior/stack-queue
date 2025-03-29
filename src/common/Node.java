@@ -1,4 +1,4 @@
-package queue;
+package common;
 
 public class Node<T> {
     private final T value;

@@ -1,5 +1,6 @@
 package queue;
 
+import common.Node;
 import queue.patient.Patient;
 import queue.patient.QueueController;
 
