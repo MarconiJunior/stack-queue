@@ -79,8 +79,4 @@ public class QueueApp {
         }
         JOptionPane.showMessageDialog(null, sb.toString());
     }
-
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(QueueApp::new);
-    }
 }
