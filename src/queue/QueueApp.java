@@ -9,7 +9,7 @@ import java.awt.*;
 public class QueueApp {
     private final QueueController queueController;
     private final JLabel lastCalledLabel;
-    private final JButton callNextButton = new JButton("Chamar Próximo Paciente");;
+    private final JButton callNextButton = new JButton("Chamar Próximo Paciente");
 
     public QueueApp() {
         queueController = new QueueController();
@@ -38,9 +38,9 @@ public class QueueApp {
         JButton showCalledButton = new JButton("Mostrar Pacientes Chamados");
         callNextButton.setEnabled(false);
 
-        registerButton.addActionListener(e -> registerPatient());
-        callNextButton.addActionListener(e -> callNextPatient());
-        showCalledButton.addActionListener(e -> showCalledPatients());
+        registerButton.addActionListener(_ -> registerPatient());
+        callNextButton.addActionListener(_ -> callNextPatient());
+        showCalledButton.addActionListener(_ -> showCalledPatients());
 
         centerPanel.add(registerButton);
         centerPanel.add(callNextButton);
