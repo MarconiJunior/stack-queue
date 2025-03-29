@@ -28,9 +28,9 @@ public class BrowserNavigation {
         backButton.setEnabled(false);
         forwardButton.setEnabled(false);
 
-        backButton.addActionListener(e -> goBack());
-        forwardButton.addActionListener(e -> goForward());
-        newPageButton.addActionListener(e -> visitNewPage());
+        backButton.addActionListener(_ -> goBack());
+        forwardButton.addActionListener(_ -> goForward());
+        newPageButton.addActionListener(_ -> visitNewPage());
 
         panel.add(backButton);
         panel.add(forwardButton);
